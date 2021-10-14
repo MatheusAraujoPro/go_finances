@@ -1,6 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import AppLoading from 'expo-app-loading';
+
 import {
   useFonts,
   Poppins_400Regular,
@@ -24,10 +25,10 @@ export default function App() {
     return <AppLoading />;
   }
 
-  
+
   return (
-    <ThemeProvider theme={theme}>
-      <DashBoard />
+    <ThemeProvider theme={theme}>      
+        <DashBoard />    
     </ThemeProvider>
   )
 
