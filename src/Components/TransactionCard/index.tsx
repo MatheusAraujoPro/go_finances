@@ -18,7 +18,7 @@ interface ICategory {
   icon: string
 }
 
-interface IData {
+export interface TransactionCardProps {
   type: 'positive' | 'negative'
   title: string,
   amount: string,
@@ -27,7 +27,7 @@ interface IData {
 }
 
 interface Props {
-  data: IData
+  data: TransactionCardProps
 }
 
 export function TransactionCard({ data }: Props) {

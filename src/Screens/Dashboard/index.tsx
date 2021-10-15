@@ -1,6 +1,7 @@
 import React from 'react';
+import { FlatList } from 'react-native-gesture-handler';
 import { HighlightCard } from '../../Components/HighlightCards';
-import { TransactionCard } from '../../Components/TransactionCard';
+import { TransactionCard, TransactionCardProps } from '../../Components/TransactionCard';
 import {
     Container,
     Header,
@@ -17,9 +18,14 @@ import {
     TransactionList
 } from './styles';
 
+export interface DataListProps extends TransactionCardProps {
+    id: string
+}
+
 export function DashBoard() {
-    const data = [
+    const data: DataListProps[] = [
         {
+            id: '1',
             type: 'positive',
             title: 'Desenvolvimento de Sistemas',
             amount: '12.000,00',
@@ -27,6 +33,7 @@ export function DashBoard() {
             date: '12/12/2012'
         },
         {
+            id: '2',
             type: 'negative',
             title: 'Hamburgueria Pizzy',
             amount: '55,00',
@@ -34,12 +41,13 @@ export function DashBoard() {
             date: '12/12/2012'
         },
         {
+            id: '3',
             type: 'negative',
             title: 'Aluguel da Casa',
             amount: '755,00',
             category: { name: 'Moradia', icon: 'shopping-bag' },
             date: '12/12/2012'
-        }      
+        }
 
     ]
     return (
@@ -84,9 +92,10 @@ export function DashBoard() {
                 <Title>Listagem</Title>
                 <TransactionList
                     data={data}
+                    keyExtractor={item => item.id}
                     renderItem={({ item })=>  <TransactionCard  data={item} />}                    
-                />
-              
+                />            
+
             </Transactions>
 
         </Container>
