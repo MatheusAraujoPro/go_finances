@@ -1,5 +1,4 @@
 import React from 'react';
-import { getBottomSpace } from 'react-native-iphone-x-helper';
 import { HighlightCard } from '../../Components/HighlightCards';
 import { TransactionCard } from '../../Components/TransactionCard';
 import {
@@ -21,29 +20,26 @@ import {
 export function DashBoard() {
     const data = [
         {
+            type: 'positive',
             title: 'Desenvolvimento de Sistemas',
             amount: '12.000,00',
             category: { name: 'Venda', icon: 'dollar-sign' },
             date: '12/12/2012'
         },
         {
-            title: 'gastos',
+            type: 'negative',
+            title: 'Hamburgueria Pizzy',
             amount: '55,00',
-            category: { name: 'Alimentação', icon: 'dollar-sign' },
+            category: { name: 'Alimentação', icon: 'coffee' },
             date: '12/12/2012'
         },
         {
-            title: 'gastos',
-            amount: '55,00',
-            category: { name: 'Alimentação', icon: 'dollar-sign' },
+            type: 'negative',
+            title: 'Aluguel da Casa',
+            amount: '755,00',
+            category: { name: 'Moradia', icon: 'shopping-bag' },
             date: '12/12/2012'
-        },
-        {
-            title: 'gastos',
-            amount: '55,00',
-            category: { name: 'Alimentação', icon: 'dollar-sign' },
-            date: '12/12/2012'
-        }
+        }      
 
     ]
     return (
