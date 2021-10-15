@@ -1,4 +1,5 @@
 import React from 'react';
+import { getBottomSpace } from 'react-native-iphone-x-helper';
 import { HighlightCard } from '../../Components/HighlightCards';
 import { TransactionCard } from '../../Components/TransactionCard';
 import {
@@ -14,9 +15,37 @@ import {
     HighlightCards,
     Transactions,
     Title,
+    TransactionList
 } from './styles';
 
 export function DashBoard() {
+    const data = [
+        {
+            title: 'Desenvolvimento de Sistemas',
+            amount: '12.000,00',
+            category: { name: 'Venda', icon: 'dollar-sign' },
+            date: '12/12/2012'
+        },
+        {
+            title: 'gastos',
+            amount: '55,00',
+            category: { name: 'Alimentação', icon: 'dollar-sign' },
+            date: '12/12/2012'
+        },
+        {
+            title: 'gastos',
+            amount: '55,00',
+            category: { name: 'Alimentação', icon: 'dollar-sign' },
+            date: '12/12/2012'
+        },
+        {
+            title: 'gastos',
+            amount: '55,00',
+            category: { name: 'Alimentação', icon: 'dollar-sign' },
+            date: '12/12/2012'
+        }
+
+    ]
     return (
         <Container>
             <Header>
@@ -57,7 +86,11 @@ export function DashBoard() {
 
             <Transactions>
                 <Title>Listagem</Title>
-                <TransactionCard/>
+                <TransactionList
+                    data={data}
+                    renderItem={({ item })=>  <TransactionCard  data={item} />}                    
+                />
+              
             </Transactions>
 
         </Container>
