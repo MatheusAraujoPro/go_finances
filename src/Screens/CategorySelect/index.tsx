@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, Text } from 'react-native';
+import { FlatList } from 'react-native';
 import { categories } from '../../Utils/categories';
 import { Buttton } from '../../Components/Forms/Buttton';
 
@@ -19,12 +19,15 @@ interface Category {
 }
 
 interface Props {
-    category: string,
+    category: Category,
     setCategory: (category: Category) => void,
     closeSelectCategory: () => void
 }
 
 export function CategorySelect({ category, setCategory, closeSelectCategory }: Props) {
+    function handleCategorySelect(category: Category){
+        setCategory(category)
+    }
     return (
         <Container>
             <Header>
@@ -36,7 +39,10 @@ export function CategorySelect({ category, setCategory, closeSelectCategory }: P
                 keyExtractor={(item) => item.key}
                 style={{ flex: 1, width: '100%' }}
                 renderItem={({ item }) => (
-                    <Category>
+                    <Category
+                        onPress={() => handleCategorySelect(item)}
+                        isActive={category.key === item.key}
+                    >
                         <Icon name={item.icon} />
                         <Name>{item.name}</Name>
                     </Category>
@@ -44,7 +50,10 @@ export function CategorySelect({ category, setCategory, closeSelectCategory }: P
                 ItemSeparatorComponent={() => <Separator />}
             />
             <Footer>
-                <Buttton title="Selecionar" />
+                <Buttton 
+                    title="Selecionar" 
+                    onPress={closeSelectCategory}
+                />
             </Footer>
         </Container>
     )
