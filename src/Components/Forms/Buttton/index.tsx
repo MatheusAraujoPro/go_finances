@@ -9,6 +9,7 @@ import {
 
 interface Props extends RectButtonProperties{
     title: string
+    onPress:() => void
 }
 export function Buttton({ title, ...rest }: Props) {
     return (
