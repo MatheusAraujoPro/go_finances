@@ -56,7 +56,7 @@ export function Register() {
         resolver: yupResolver(schema)
 
     })
-   
+
 
     function handleTransactionTypes(type: 'up' | 'down') {
         setTransactionTypeSelected(type)
@@ -78,28 +78,36 @@ export function Register() {
             return Alert.alert('Selecione uma categoria')
 
 
-        const data = {
+        const newTransaction = {
             name: form.name,
             amount: form.amount,
             transactionTypeSelected,
             category: category.name
         }
-        
-        try {          
-            await AsyncStorage.setItem(dataKey, JSON.stringify(data))
+
+        try {
+            const data = await AsyncStorage.getItem(dataKey);
+            const currentData = data ? JSON.parse(data) : []
+
+            const dataFormatted = [
+                ...currentData,
+                newTransaction
+            ]
+
+            await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted))
         } catch (error) {
             console.log(error);
             Alert.alert('Não foi possível salvar')
         }
     }
 
-    useEffect(()=>{
-        async function loadData(){
+    useEffect(() => {
+        async function loadData() {
             const data = await AsyncStorage.getItem(dataKey)
-            console.log(JSON.parse(data!));           
+            console.log(JSON.parse(data!));
         }
 
-        loadData()
+        loadData()     
     }, [])
 
 
