@@ -1,3 +1,5 @@
+import 'intl'
+import 'intl/locale-data/jsonp/pt-BR'
 import React from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import AppLoading from 'expo-app-loading';
@@ -12,7 +14,6 @@ import {
   Poppins_700Bold
 } from '@expo-google-fonts/poppins';
 
-import { Register } from './src/Screens/Register';
 import theme from './src/Global/Styles/theme'
 
 export default function App() {
