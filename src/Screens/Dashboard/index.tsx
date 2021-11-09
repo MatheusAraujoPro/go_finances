@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { FlatList } from 'react-native-gesture-handler';
+import { useFocusEffect } from '@react-navigation/native';
 
 import { HighlightCard } from '../../Components/HighlightCards';
 import { TransactionCard, TransactionCardProps } from '../../Components/TransactionCard';
@@ -69,6 +69,10 @@ export function DashBoard() {
         // }
         // excluir()
     }, [])
+
+    useFocusEffect(useCallback(()=>{
+        loadTransactions()
+    },[]))
 
     return (
         <Container>
