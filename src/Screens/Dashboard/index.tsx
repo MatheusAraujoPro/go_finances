@@ -169,26 +169,26 @@ export function DashBoard() {
                 <HighlightCard
                     type="up"
                     title="Entrada"
-                    amount={highlightData.entries.amount}                    
-                    lastTranstacion={highlightData.entries.lastTransaction}
-                    // amount=""                   
-                    // lastTranstacion=""
+                    // amount={highlightData.entries.amount}                    
+                    // lastTranstacion={highlightData.entries.lastTransaction}
+                    amount=""                   
+                    lastTranstacion=""
                 />
                 <HighlightCard
                     type="down"
                     title="Saída"
-                    amount={highlightData.expensives.amount}                    
-                    lastTranstacion={highlightData.expensives.lastTransaction}
-                    // amount=""                   
-                    // lastTranstacion=""
+                    // amount={highlightData.expensives.amount}                    
+                    // lastTranstacion={highlightData.expensives.lastTransaction}
+                    amount=""                   
+                    lastTranstacion=""
                 />
                 <HighlightCard
                     type="total"
                     title="Total"
-                    amount={highlightData.total.amount}                  
-                    lastTranstacion={highlightData.total.lastTransaction}
-                    // amount=""                   
-                    // lastTranstacion=""
+                    // amount={highlightData.total.amount}                  
+                    // lastTranstacion={highlightData.total.lastTransaction}
+                    amount=""                   
+                    lastTranstacion=""
                 />
             </HighlightCards>
 
